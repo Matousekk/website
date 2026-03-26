@@ -1,0 +1,8 @@
+/*
+ Quantcast measurement tag
+ Copyright (c) 2008-2022, Quantcast Corp.
+*/
+'use strict';(function(d,k,h){var l=function(a){var b=h.createElement("a");b.href=a;return b},m=[/^http[s]?:\/\/((adservice.google.*)|([^\/]*fls\.doubleclick\.net))\/.*~oref=(?<url>[^;\n]*)/,/^http[s]?:\/\/[^\/]*tealium.*\/.*page_url=(?<url>[^&]*)/],n=function(){if(k.top!==k.self){try{for(var a=0;a<m.length;a++){var b=h.location.href.match(m[a]);if(b&&b.groups.url){var c=decodeURIComponent(b.groups.url);break}}}catch(f){}return c?l(c):l(h.referrer)}return h.location},p=function(a,b,c){return a?"nc"===
+a?!b||!c||0>b.indexOf(c):"eq"===a?b===c:"sw"===a?0===b.indexOf(c):"ew"===a?(a=b.length-c.length,b=b.lastIndexOf(c,a),-1!==b&&b===a):"c"===a?0<=b.indexOf(c):!1:!1},g=function(a,b,c){var f=n().href;p(b,f,c)?a(f):a(!1)},e=function(a){return"array"==={}.toString.call(a).match(/\s([a-zA-Z]+)/)[1].toLowerCase()?{labels:a.join(",")}:{labels:""+a}};try{__qc("defaults",d,{labels:"_fp.event.Default"})}catch(a){}__qc.apply(null,["rules",[d,null,[[e,"_fp.event.Homepage"]],[[function(a,b,c){var f=n().pathname;
+p(b,f,c)?a(f):a(!1)},"eq","/"]]],[d,null,[[e,"_fp.event.Pricing"]],[[g,"c","https://www.tulipcremation.com/pricing"]]],[d,null,[[e,"_fp.event.Service Area"]],[[g,"c","https://www.tulipcremation.com/locations"]]],[d,null,[[e,"_fp.event.Plan Ahead"]],[[g,"c","https://www.tulipcremation.com/plan-ahead"]]],[d,null,[[e,"_fp.event.Reviews"]],[[g,"eq","https://www.tulipcremation.com/reviews"]]],[d,null,[[e,"_fp.event.Our Service"]],[[g,"eq","https://www.tulipcremation.com/our-service"]]],[d,null,[[e,"_fp.event.Imminent Need Services"]],
+[[g,"c","https://www.tulipcremation.com/soon"]]]])})("p-6xDXVp7qyTzD-",window,document);

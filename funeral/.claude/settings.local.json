@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(xargs -I{} basename {})",
+      "Bash(grep -v '^[[:space:]]*$')",
+      "Bash(grep -v '^\\\\s*$')"
+    ]
+  }
+}

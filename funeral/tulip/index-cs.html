@@ -1,0 +1,1133 @@
+<!DOCTYPE html>
+<html lang="cs" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tulip Kremace | Kremační služby, kterým vaše rodina může důvěřovat</title>
+  <meta name="description" content="Tulip Kremace poskytuje jednoduchou přímou kremaci, kterou lze sjednat na dálku s pomocí našeho týmu péče. Návštěva pohřebního ústavu není nutná.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
+
+  <style>
+    /* ── Reset & Base ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 16px;
+      color: #1a1a1a;
+      background: #fff;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    img { max-width: 100%; display: block; }
+    a { color: inherit; text-decoration: none; }
+    ul { list-style: none; }
+    button { cursor: pointer; border: none; background: none; font-family: inherit; }
+
+    /* ── CSS Variables ── */
+    :root {
+      --navy:       #243965;
+      --navy-dark:  #1a2b4e;
+      --sage:       #edf4f5;
+      --sage-dark:  #d6e8eb;
+      --gold:       #FFD72E;
+      --text:       #1a1a1a;
+      --text-mid:   #4a4a4a;
+      --text-light: #717171;
+      --border:     #d8dbe3;
+      --white:      #ffffff;
+      --cream:      #f8f5f0;
+      --max-w:      1280px;
+      --radius:     4px;
+    }
+
+    /* ── Typography ── */
+    h1, h2, h3, h4 {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 500;
+      line-height: 1.2;
+      color: var(--navy);
+    }
+    h1 { font-size: clamp(2rem, 3.5vw, 3rem); }
+    h2 { font-size: clamp(1.6rem, 2.8vw, 2.4rem); }
+    h3 { font-size: clamp(1.1rem, 1.6vw, 1.35rem); font-family: 'DM Sans', sans-serif; font-weight: 500; }
+
+    /* ── Layout Helpers ── */
+    .container { max-width: var(--max-w); margin: 0 auto; padding: 0 24px; }
+    .section-pad { padding: 80px 0; }
+    .section-pad-xl { padding: 100px 0; }
+
+    /* ── Buttons ── */
+    .btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 12px 24px;
+      border-radius: 100px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 500;
+      letter-spacing: 0.02em;
+      transition: all 0.2s ease;
+      white-space: nowrap;
+    }
+    .btn-primary {
+      background: var(--navy); color: #fff;
+    }
+    .btn-primary:hover { background: var(--navy-dark); }
+    .btn-outline {
+      background: transparent; color: var(--navy);
+      border: 1.5px solid var(--navy);
+    }
+    .btn-outline:hover { background: var(--navy); color: #fff; }
+    .btn-ghost {
+      background: transparent; color: var(--navy);
+      text-decoration: underline; text-underline-offset: 3px;
+      padding: 12px 0;
+    }
+    .btn-ghost:hover { opacity: 0.7; }
+    .btn-sm { padding: 8px 18px; font-size: 0.82rem; }
+    .btn svg { flex-shrink: 0; }
+
+    /* ── HEADER ── */
+    .site-header {
+      position: sticky; top: 0; z-index: 100;
+      background: #fff;
+      border-bottom: 1px solid var(--border);
+      box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+    }
+    .header-inner {
+      display: flex; align-items: center; justify-content: space-between;
+      height: 72px; padding: 0 24px; max-width: var(--max-w); margin: 0 auto;
+    }
+    .header-logo svg { display: block; }
+    .header-nav { display: flex; align-items: center; gap: 28px; }
+    .header-nav a {
+      font-size: 0.88rem; font-weight: 500; color: var(--navy);
+      transition: opacity 0.15s;
+    }
+    .header-nav a:hover { opacity: 0.65; }
+    .header-right { display: flex; align-items: center; gap: 16px; }
+    .header-phone {
+      display: flex; align-items: center; gap: 6px;
+      font-size: 0.82rem; color: var(--navy); font-weight: 500;
+    }
+    .header-phone svg { opacity: 0.6; }
+    .hamburger { display: none; }
+
+    /* ── HERO ── */
+    .hero {
+      position: relative; overflow: hidden;
+      background: #c9d9d6;
+    }
+    .hero-bg {
+      position: absolute; inset: 0;
+      width: 100%; height: 100%;
+      object-fit: cover; object-position: 50% 50%;
+    }
+    .hero-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(90deg, rgba(22,42,70,0.72) 0%, rgba(22,42,70,0.35) 55%, transparent 100%);
+    }
+    .hero-inner {
+      position: relative; z-index: 2;
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 40px; align-items: center;
+      max-width: var(--max-w); margin: 0 auto;
+      padding: 80px 24px;
+      min-height: 580px;
+    }
+    .hero-text h1 {
+      color: #fff;
+      font-size: clamp(2rem, 3.2vw, 3rem);
+      margin-bottom: 20px;
+      font-weight: 500;
+    }
+    .hero-text p {
+      color: rgba(255,255,255,0.9);
+      font-size: 1rem; line-height: 1.65;
+      max-width: 440px;
+    }
+
+    /* Quote Form Card */
+    .quote-card {
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 8px 40px rgba(0,0,0,0.18);
+      overflow: hidden;
+    }
+    .quote-card-header {
+      background: var(--navy); color: #fff;
+      padding: 24px 28px 20px;
+    }
+    .quote-stepper {
+      display: flex; align-items: center; gap: 10px;
+      margin-bottom: 14px;
+    }
+    .quote-step-label {
+      font-size: 0.78rem; font-weight: 500; opacity: 0.75;
+    }
+    .quote-steps {
+      display: flex; gap: 5px;
+    }
+    .quote-step-dot {
+      width: 28px; height: 3px; border-radius: 2px;
+      background: rgba(255,255,255,0.3);
+      transition: background 0.3s;
+    }
+    .quote-step-dot.active { background: #fff; }
+    .quote-card-header h2 {
+      color: #fff;
+      font-size: clamp(1.1rem, 1.5vw, 1.3rem);
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 500;
+      margin-bottom: 8px;
+    }
+    .quote-card-header p {
+      font-size: 0.82rem; opacity: 0.8; line-height: 1.5;
+    }
+    .quote-card-body { padding: 24px 28px 28px; }
+    .quote-form-title {
+      font-size: 1rem; font-weight: 600; color: var(--navy);
+      margin-bottom: 14px;
+    }
+    .quote-options { display: flex; flex-direction: column; gap: 10px; margin-bottom: 20px; }
+    .quote-option {
+      display: flex; align-items: center; gap: 12px;
+      padding: 14px 16px;
+      border: 1.5px solid var(--border);
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.2s;
+      background: #fff;
+      font-size: 0.9rem; font-weight: 500; color: var(--navy);
+      width: 100%; text-align: left;
+    }
+    .quote-option:hover { border-color: var(--navy); background: var(--sage); }
+    .quote-option.selected { border-color: var(--navy); background: var(--sage); }
+    .quote-radio {
+      width: 18px; height: 18px; border-radius: 50%;
+      border: 2px solid var(--border); flex-shrink: 0;
+      display: flex; align-items: center; justify-content: center;
+      transition: all 0.2s;
+    }
+    .quote-option:hover .quote-radio,
+    .quote-option.selected .quote-radio {
+      border-color: var(--navy);
+    }
+    .quote-option.selected .quote-radio::after {
+      content: ''; width: 8px; height: 8px;
+      border-radius: 50%; background: var(--navy);
+    }
+    .quote-continue {
+      width: 100%;
+      background: var(--navy); color: #fff;
+      border-radius: 100px;
+      padding: 14px 24px;
+      font-size: 0.92rem; font-weight: 500;
+      display: flex; align-items: center; justify-content: center; gap: 8px;
+      transition: background 0.2s;
+    }
+    .quote-continue:hover { background: var(--navy-dark); }
+    .quote-continue:disabled { opacity: 0.45; cursor: not-allowed; }
+
+    /* ── SIMPLE TILES STRIP ── */
+    .tiles-strip { background: var(--cream); padding: 64px 0; }
+    .tiles-strip-grid {
+      display: grid; grid-template-columns: repeat(4, 1fr);
+      gap: 32px; align-items: start;
+    }
+    .tile-simple {
+      display: flex; flex-direction: column; align-items: center;
+      text-align: center; gap: 14px;
+    }
+    .tile-simple img {
+      width: 80px; height: 80px; object-fit: cover;
+      border-radius: 50%;
+    }
+    .tile-simple h3 {
+      font-size: 0.95rem; font-weight: 600; color: var(--navy);
+      font-family: 'DM Sans', sans-serif;
+    }
+    .tile-simple p { font-size: 0.85rem; color: var(--text-mid); }
+
+    /* ── TESTIMONIALS ── */
+    .testimonials {
+      position: relative; overflow: hidden;
+      background: var(--sage);
+    }
+    .testimonials-bg {
+      position: absolute; inset: 0;
+      width: 100%; height: 100%;
+      object-fit: cover; object-position: 50% 50%;
+      opacity: 0.35;
+    }
+    .testimonials-inner {
+      position: relative; z-index: 2;
+      max-width: var(--max-w); margin: 0 auto;
+      padding: 80px 24px;
+    }
+    .testimonials-header {
+      display: flex; justify-content: space-between; align-items: center;
+      margin-bottom: 40px;
+    }
+    .testimonials-header h2 { font-size: clamp(1.6rem, 2.5vw, 2.2rem); color: var(--navy); }
+    .carousel-nav { display: flex; gap: 10px; }
+    .carousel-btn {
+      width: 48px; height: 48px; border-radius: 50%;
+      border: 1.5px solid var(--navy);
+      display: flex; align-items: center; justify-content: center;
+      color: var(--navy); transition: all 0.2s;
+    }
+    .carousel-btn:hover { background: var(--navy); color: #fff; }
+    .carousel-btn:disabled { opacity: 0.3; cursor: not-allowed; }
+    .testimonials-track-wrapper { overflow: hidden; }
+    .testimonials-track {
+      display: flex; gap: 20px;
+      transition: transform 0.4s ease;
+    }
+    .testimonial-card {
+      flex: 0 0 calc(33.33% - 14px);
+      background: #fff; border-radius: 12px;
+      padding: 28px 28px 24px;
+    }
+    .testimonial-card blockquote {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.05rem; line-height: 1.6;
+      color: var(--navy); margin-bottom: 18px;
+      font-style: italic;
+    }
+    .testimonial-author { font-size: 0.88rem; font-weight: 600; color: var(--navy); }
+    .testimonial-location { font-size: 0.82rem; color: var(--text-light); margin-top: 2px; }
+    .testimonial-date { font-size: 0.78rem; color: var(--text-light); margin-top: 2px; }
+    .testimonials-footer { margin-top: 32px; }
+    .carousel-dots { display: flex; gap: 8px; margin-top: 24px; }
+    .carousel-dot {
+      width: 8px; height: 8px; border-radius: 50%;
+      background: var(--border); transition: background 0.3s;
+    }
+    .carousel-dot.active { background: var(--navy); }
+
+    /* ── PRICING ── */
+    .pricing { padding: 80px 0; background: #fff; }
+    .pricing-header { text-align: center; margin-bottom: 48px; }
+    .pricing-header h2 { text-decoration: underline; text-underline-offset: 5px; }
+    .pricing-grid {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 28px; max-width: 900px; margin: 0 auto 40px;
+    }
+    .price-card {
+      border: 1.5px solid var(--border); border-radius: 12px;
+      padding: 36px 32px; position: relative;
+    }
+    .price-card.highlight {
+      border-color: var(--navy);
+      box-shadow: 0 0 0 3px rgba(36,57,101,0.12);
+    }
+    .price-caption {
+      display: flex; align-items: center; gap: 8px;
+      font-size: 0.85rem; color: var(--text-light);
+      margin-bottom: 10px;
+    }
+    .price-caption svg { opacity: 0.6; }
+    .price-card h3 {
+      font-size: 0.95rem; color: var(--text-mid);
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 500; margin-bottom: 8px;
+    }
+    .price-amount {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 3rem; font-weight: 600; color: var(--navy);
+      line-height: 1; margin-bottom: 20px;
+    }
+    .price-list { margin-bottom: 20px; }
+    .price-list li {
+      display: flex; align-items: flex-start; gap: 10px;
+      font-size: 0.88rem; color: var(--text-mid);
+      padding: 6px 0; border-bottom: 1px solid var(--border);
+    }
+    .price-list li:last-child { border-bottom: none; }
+    .price-list li::before {
+      content: '✓'; color: var(--navy); font-weight: 700;
+      flex-shrink: 0; margin-top: 1px;
+    }
+    .price-card.plain .price-list li::before { content: '×'; color: var(--text-light); }
+    .price-copy { font-size: 0.82rem; color: var(--text-light); line-height: 1.5; }
+    .pricing-action { text-align: center; }
+
+    /* ── OUR PROCESS ── */
+    .process {
+      position: relative; overflow: hidden;
+    }
+    .process-bg {
+      position: absolute; inset: 0;
+      width: 100%; height: 100%;
+      object-fit: cover; object-position: 0% 100%;
+    }
+    .process-inner {
+      position: relative; z-index: 2;
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 60px; align-items: start;
+      max-width: var(--max-w); margin: 0 auto;
+      padding: 80px 24px;
+    }
+    .process-heading h2 { color: var(--white); font-size: clamp(1.8rem, 3vw, 2.6rem); margin-bottom: 16px; }
+    .process-heading p { color: rgba(255,255,255,0.85); font-size: 0.95rem; line-height: 1.65; margin-bottom: 8px; }
+    .process-actions { margin-top: 32px; display: flex; gap: 14px; flex-wrap: wrap; }
+    .btn-white { background: #fff; color: var(--navy); }
+    .btn-white:hover { background: var(--sage); }
+    .btn-outline-white {
+      background: transparent; color: #fff;
+      border: 1.5px solid rgba(255,255,255,0.7);
+    }
+    .btn-outline-white:hover { background: rgba(255,255,255,0.1); }
+    .process-steps { display: flex; flex-direction: column; gap: 0; }
+    .process-step {
+      display: flex; align-items: flex-start; gap: 20px;
+      padding: 20px 24px;
+      background: rgba(255,255,255,0.92); border-radius: 10px;
+      margin-bottom: 10px;
+    }
+    .process-step:last-child { margin-bottom: 0; }
+    .process-step-img {
+      width: 72px; height: 72px; object-fit: cover;
+      border-radius: 8px; flex-shrink: 0;
+    }
+    .process-step-content { flex: 1; }
+    .process-step-num {
+      font-size: 0.72rem; font-weight: 600; color: var(--text-light);
+      text-transform: uppercase; letter-spacing: 0.08em;
+      margin-bottom: 2px;
+    }
+    .process-step-title {
+      font-size: 1rem; font-weight: 600; color: var(--navy);
+      margin-bottom: 4px;
+    }
+    .process-step-desc {
+      font-size: 0.83rem; color: var(--text-mid); line-height: 1.5;
+      margin-bottom: 6px;
+    }
+    .process-step-duration {
+      display: inline-block;
+      font-size: 0.75rem; font-weight: 600;
+      color: var(--navy); background: var(--sage);
+      padding: 2px 10px; border-radius: 100px;
+    }
+
+    /* ── 50/50 SPLIT SECTIONS ── */
+    .split-section { background: var(--sage); }
+    .split-inner {
+      display: grid; grid-template-columns: 1fr 1fr;
+      min-height: 480px;
+    }
+    .split-inner.reversed { direction: rtl; }
+    .split-inner.reversed > * { direction: ltr; }
+    .split-content {
+      display: flex; align-items: center;
+      padding: 64px 60px;
+    }
+    .split-content-inner { max-width: 480px; }
+    .split-content h2 { margin-bottom: 18px; }
+    .split-content p { font-size: 0.95rem; color: var(--text-mid); line-height: 1.7; margin-bottom: 28px; }
+    .split-image { overflow: hidden; }
+    .split-image img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      border-radius: 0 16px 16px 0;
+    }
+    .split-inner.reversed .split-image img {
+      border-radius: 16px 0 0 16px;
+    }
+
+    /* ── ARTICLES ── */
+    .articles { padding: 80px 0; background: #fff; }
+    .articles-header {
+      margin-bottom: 40px;
+    }
+    .articles-header h2 { font-size: clamp(1.6rem, 2.5vw, 2.2rem); }
+    .articles-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 28px; margin-bottom: 40px;
+    }
+    .article-card { cursor: pointer; }
+    .article-img {
+      width: 100%; aspect-ratio: 16/9;
+      object-fit: cover; border-radius: 8px;
+      margin-bottom: 16px;
+      transition: transform 0.3s ease;
+    }
+    .article-card:hover .article-img { transform: scale(1.02); }
+    .article-img-wrap { overflow: hidden; border-radius: 8px; margin-bottom: 16px; }
+    .article-card h2 {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.98rem; font-weight: 600; color: var(--navy);
+      margin-bottom: 8px; line-height: 1.4;
+    }
+    .article-card p {
+      font-size: 0.84rem; color: var(--text-mid);
+      line-height: 1.55; margin-bottom: 12px;
+    }
+    .read-more {
+      font-size: 0.78rem; font-weight: 700;
+      color: var(--navy); letter-spacing: 0.06em;
+      text-transform: uppercase;
+      border-bottom: 1.5px solid var(--navy);
+      padding-bottom: 2px;
+      display: inline-block;
+    }
+    .articles-footer { text-align: left; }
+
+    /* ── FOOTER ── */
+    .site-footer { background: var(--navy); color: rgba(255,255,255,0.85); }
+    .footer-top {
+      padding: 60px 0 48px;
+      border-bottom: 1px solid rgba(255,255,255,0.12);
+    }
+    .footer-top-inner {
+      display: grid; grid-template-columns: 1.6fr 1fr 1fr 1fr 1fr;
+      gap: 48px; max-width: var(--max-w); margin: 0 auto; padding: 0 24px;
+    }
+    .footer-brand { }
+    .footer-logo { margin-bottom: 20px; }
+    .footer-logo svg path { fill: #fff; }
+    .footer-contact-label {
+      font-size: 0.88rem; margin-bottom: 6px;
+      color: rgba(255,255,255,0.7);
+    }
+    .footer-phone {
+      font-size: 1.1rem; font-weight: 600; color: #fff;
+      margin-bottom: 4px;
+    }
+    .footer-availability { font-size: 0.78rem; color: rgba(255,255,255,0.5); }
+    .footer-social { margin-top: 20px; display: flex; gap: 10px; }
+    .social-link {
+      width: 36px; height: 36px; border-radius: 50%;
+      border: 1px solid rgba(255,255,255,0.25);
+      display: flex; align-items: center; justify-content: center;
+      color: rgba(255,255,255,0.7); transition: all 0.2s;
+      font-size: 0.7rem; font-weight: 600;
+    }
+    .social-link:hover { border-color: #fff; color: #fff; }
+    .footer-col h4 {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.82rem; font-weight: 700;
+      color: #fff; text-transform: uppercase;
+      letter-spacing: 0.06em; margin-bottom: 16px;
+    }
+    .footer-col ul li { margin-bottom: 10px; }
+    .footer-col ul a {
+      font-size: 0.88rem; color: rgba(255,255,255,0.65);
+      transition: color 0.15s;
+    }
+    .footer-col ul a:hover { color: #fff; }
+
+    /* Newsletter */
+    .newsletter-section {
+      padding: 48px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.12);
+    }
+    .newsletter-inner {
+      max-width: var(--max-w); margin: 0 auto; padding: 0 24px;
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 40px;
+    }
+    .newsletter-text {}
+    .newsletter-stay { font-size: 0.78rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: rgba(255,255,255,0.5); margin-bottom: 4px; }
+    .newsletter-text h3 { font-family: 'DM Sans', sans-serif; font-size: 1.2rem; font-weight: 600; color: #fff; }
+    .newsletter-form {
+      display: flex; gap: 10px; align-items: center; flex: 0 0 auto;
+    }
+    .newsletter-input {
+      padding: 12px 18px;
+      border-radius: 100px;
+      border: 1.5px solid rgba(255,255,255,0.25);
+      background: rgba(255,255,255,0.08);
+      color: #fff; font-family: 'DM Sans', sans-serif; font-size: 0.88rem;
+      width: 280px;
+    }
+    .newsletter-input::placeholder { color: rgba(255,255,255,0.4); }
+    .newsletter-input:focus { outline: none; border-color: rgba(255,255,255,0.5); }
+    .newsletter-privacy {
+      font-size: 0.75rem; color: rgba(255,255,255,0.4);
+      margin-top: 8px; text-align: right;
+    }
+
+    .footer-bottom {
+      padding: 24px;
+      max-width: var(--max-w); margin: 0 auto;
+      display: flex; justify-content: space-between; align-items: center;
+      flex-wrap: wrap; gap: 12px;
+    }
+    .footer-copyright { font-size: 0.78rem; color: rgba(255,255,255,0.4); }
+    .footer-legal { display: flex; gap: 20px; }
+    .footer-legal a { font-size: 0.78rem; color: rgba(255,255,255,0.4); transition: color 0.15s; }
+    .footer-legal a:hover { color: #fff; }
+
+    /* ── Back to top ── */
+    .back-to-top {
+      display: flex; justify-content: center;
+      padding: 16px 0;
+      background: #1a2b4e;
+    }
+    .back-to-top a {
+      display: flex; align-items: center; gap: 6px;
+      font-size: 0.78rem; color: rgba(255,255,255,0.5);
+      transition: color 0.15s;
+    }
+    .back-to-top a:hover { color: #fff; }
+
+    /* ── Responsive ── */
+    @media (max-width: 1024px) {
+      .hero-inner { grid-template-columns: 1fr; min-height: auto; padding: 60px 24px; }
+      .quote-card { max-width: 520px; }
+      .tiles-strip-grid { grid-template-columns: repeat(2, 1fr); }
+      .process-inner { grid-template-columns: 1fr; gap: 40px; }
+      .process-heading h2, .process-heading p { color: var(--navy); }
+      .process-bg { opacity: 0.08; }
+      .split-inner { grid-template-columns: 1fr; }
+      .split-inner.reversed { direction: ltr; }
+      .split-content { padding: 48px 32px; }
+      .split-image { height: 360px; }
+      .split-image img { border-radius: 0; width: 100%; height: 100%; }
+      .footer-top-inner { grid-template-columns: 1fr 1fr; gap: 32px; }
+      .newsletter-inner { flex-direction: column; align-items: flex-start; }
+      .newsletter-form { flex-wrap: wrap; }
+    }
+    @media (max-width: 768px) {
+      .header-nav { display: none; }
+      .hamburger { display: block; }
+      .hero-text h1 { font-size: 1.8rem; }
+      .pricing-grid { grid-template-columns: 1fr; }
+      .articles-grid { grid-template-columns: 1fr; }
+      .testimonial-card { flex: 0 0 calc(100% - 0px); }
+      .tiles-strip-grid { grid-template-columns: repeat(2, 1fr); }
+      .footer-top-inner { grid-template-columns: 1fr; }
+      .footer-bottom { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body id="page-body">
+
+<!-- ── HEADER ── -->
+<header class="site-header">
+  <div class="header-inner">
+    <a href="#" class="header-logo" title="Domovská stránka">
+      <svg width="127" height="40" viewBox="0 0 127 40" fill="none" focusable="false">
+        <title>Tulip Kremace logo</title>
+        <g clip-path="url(#logo-clip)">
+          <path fill="#243965" d="M60.66 29.24c-1.8 0-2.69-1.01-2.69-3.38V13.48h2.83v-1.64h-2.83V6.18h-1.15c-1.66 2.56-3.93 5.35-6.58 6.56v.89h2.38v12.53c0 4.35 2.3 6.02 5.46 6.02a6.6 6.6 0 0 0 5.93-3.34l-.47-.7c-.95.75-1.8 1.1-2.88 1.1ZM100.12 8.47a3.02 3.02 0 0 0 2.9-1.87 3.04 3.04 0 0 0-2.91-4.27 3.02 3.02 0 0 0-2.8 1.9 3.09 3.09 0 0 0 1.64 4c.37.16.77.24 1.17.24ZM105.31 30.5l-.96-.08c-1.46-.12-1.54-.54-1.54-1.87v-16.7h-7.7V13l.58.11c1.5.27 1.77.9 1.77 2.18v13.25c0 1.34-.08 1.75-1.54 1.87l-.96.08c-1.77-.12-2.38-.35-2.38-1.71V3.23h-7.7V4.4l.58.11c1.12.27 1.77.47 1.77 2.18v22.09c0 1.36-.62 1.6-2.38 1.7l-.96-.07c-1.46-.11-1.54-.53-1.54-1.87v-16.7h-7.7v1.17l.57.11c1.5.27 1.77.9 1.77 2.18v12.17c-1.23.81-2.37 1.47-3.92 1.47-2.11 0-3-1.4-3-3.76V11.84h-7.74v1.64l.62.12c1.5.26 1.77.9 1.77 2.17v10.1c0 4.35 2.2 6.29 5.58 6.29 3.04 0 5.08-1.9 6.7-3.74l-.12 3.34h28.43V30.5Z"/>
+          <path fill="#243965" d="M118.5 11.42c-3.07 0-5.19 1.71-6.46 3.65v-3.23h-7.7v1.17l.59.11c1.47.27 1.75.88 1.76 2.11v21.78c0 1.36-.61 1.6-2.37 1.71V40h10.89v-1.28c-2.43-.2-3.16-.35-3.16-1.83v-5.82c.85.74 2.27 1.09 3.85 1.09 5.73 0 10.27-3.7 10.27-11.3 0-5.98-2.97-9.44-7.66-9.44Zm-2.95 19.26c-2.35 0-3.5-1.51-3.5-4.46V16.04a5.1 5.1 0 0 1 3.38-1.36c3.62 0 5.35 3.3 5.35 8.08s-1.97 7.92-5.23 7.92Z"/>
+          <path fill="#FFD72E" d="M30.44.05C26.17.38 22.14 2.15 19 5.1A18.88 18.88 0 0 0 0 1.03v18.15c0 5.09 2 9.97 5.57 13.56a18.92 18.92 0 0 0 26.88 0 19.27 19.27 0 0 0 5.57-13.56V1.03a18.92 18.92 0 0 0-7.58-.98Zm-5.29 19.13A19.3 19.3 0 0 1 19 33.31a19.14 19.14 0 0 1-6.13-14.13v-.07A19.3 19.3 0 0 1 19.01 5.1a19.16 19.16 0 0 1 6.15 14.01v.07Z"/>
+        </g>
+        <defs>
+          <clipPath id="logo-clip"><path fill="#fff" d="M0 0h126.32v40H0z"/></clipPath>
+        </defs>
+      </svg>
+    </a>
+
+    <nav class="header-nav" aria-label="Hlavní navigace">
+      <a href="#">Naše služby</a>
+      <a href="#">Ceník</a>
+      <a href="#">Oblasti služeb</a>
+      <a href="#">Příběhy</a>
+      <a href="#">Odborné rady</a>
+      <a href="#">Parte</a>
+    </nav>
+
+    <div class="header-right">
+      <div class="header-phone">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.62 3.44 2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.89a16 16 0 0 0 6.16 6.16l.96-.96a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/>
+        </svg>
+        <span>(844) 942-4909</span>
+      </div>
+      <a href="#" class="btn btn-primary btn-sm">Okamžitá nabídka</a>
+      <button class="hamburger" aria-label="Menu">
+        <svg width="24" height="24" viewBox="0 0 28 18" fill="none">
+          <rect width="28" height="2" rx="1" fill="#243965"/>
+          <rect y="8" width="28" height="2" rx="1" fill="#243965"/>
+          <rect y="16" width="28" height="2" rx="1" fill="#243965"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+
+<!-- ── HERO ── -->
+<section class="hero" id="hero">
+  <img class="hero-bg"
+    src="./Tulip Cremation _ Cremation Services Your Family Can Trust_files/inlined-quote-lg.jpg"
+    alt="Kremační služby Tulip" loading="eager" width="1920" height="800">
+  <div class="hero-overlay"></div>
+
+  <div class="hero-inner">
+    <div class="hero-text">
+      <h1>Kremační služby, kterým vaše rodina může důvěřovat</h1>
+      <p>Naše jednoduché přímé kremační služby lze sjednat telefonicky nebo online s pomocí specialisty pro rodiny. S Tulipem není nutná návštěva pohřebního ústavu.</p>
+    </div>
+
+    <div class="quote-card">
+      <div class="quote-card-header">
+        <div class="quote-stepper">
+          <span class="quote-step-label">Krok 1 ze 4</span>
+          <div class="quote-steps">
+            <div class="quote-step-dot active"></div>
+            <div class="quote-step-dot"></div>
+            <div class="quote-step-dot"></div>
+            <div class="quote-step-dot"></div>
+          </div>
+        </div>
+        <h2>Získejte okamžitou, personalizovanou nabídku od Tulip</h2>
+        <p>Vyberte typ služby, zodpovězte několik otázek a my vám ihned ukážeme cenu – žádné skryté poplatky, nikdy.</p>
+      </div>
+      <div class="quote-card-body">
+        <div class="quote-form-title">Jak vám můžeme pomoci?</div>
+        <div class="quote-options">
+          <button class="quote-option" onclick="selectOption(this)">
+            <span class="quote-radio"></span>
+            Blízký zemřel
+          </button>
+          <button class="quote-option" onclick="selectOption(this)">
+            <span class="quote-radio"></span>
+            Plánuji předem pro sebe
+          </button>
+          <button class="quote-option" onclick="selectOption(this)">
+            <span class="quote-radio"></span>
+            Plánuji předem pro někoho jiného
+          </button>
+        </div>
+        <button class="quote-continue" id="continueBtn" disabled>
+          Pokračovat
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M11.293.293a1 1 0 0 1 1.414 0l9 9a1 1 0 0 1 0 1.414l-9 9a1 1 0 0 1-1.414-1.414L18.586 11H1a1 1 0 1 1 0-2h17.586l-7.293-7.293a1 1 0 0 1 0-1.414Z" fill="currentColor"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ── SIMPLE TILES STRIP ── -->
+<section class="tiles-strip">
+  <div class="container">
+    <div class="tiles-strip-grid">
+      <div class="tile-simple">
+        <img src="./Tulip Cremation _ Cremation Services Your Family Can Trust_files/image1.jpg" alt="Sjednání online" loading="lazy">
+        <h3>Sjednání online</h3>
+        <p>Vše zařídíte z pohodlí domova</p>
+      </div>
+      <div class="tile-simple">
+        <img src="./Tulip Cremation _ Cremation Services Your Family Can Trust_files/image2.jpg" alt="Bezpečný převoz" loading="lazy">
+        <h3>Bezpečný převoz</h3>
+        <p>Váš blízký je respektovaně převzat do naší péče</p>
+      </div>
+      <div class="tile-simple">
+        <img src="./Tulip Cremation _ Cremation Services Your Family Can Trust_files/image3.jpg" alt="Důstojná kremace" loading="lazy">
+        <h3>Důstojná kremace</h3>
+        <p>Soukromá a vážná kremace v našich zařízeních</p>
+      </div>
+      <div class="tile-simple">
+        <img src="./Tulip Cremation _ Cremation Services Your Family Can Trust_files/image5.jpg" alt="Bezpečné doručení ostatků" loading="lazy">
+        <h3>Vrácení ostatků</h3>
+        <p>Ostatky doručíme na libovolnou adresu prioritní poštou</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ── TESTIMONIALS ── -->
+<section class="testimonials">
+  <img class="testimonials-bg"
+    src="./Tulip Cremation _ Cremation Services Your Family Can Trust_files/stories-carousel-lg.jpg"
+    alt="" loading="lazy" aria-hidden="true">
+  <div class="testimonials-inner">
+    <div class="testimonials-header">
+      <h2>Slovy našich zákazníků</h2>
+      <div class="carousel-nav">
+        <button class="carousel-btn" id="prevBtn" disabled aria-label="Předchozí" onclick="scrollCarousel(-1)">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M8.707 19.707a1 1 0 0 1-1.414 0l-9-9a1 1 0 0 1 0-1.414l9-9a1 1 0 1 1 1.414 1.414L1.414 10l7.293 7.293a1 1 0 0 1 0 1.414Z" fill="currentColor"/>
+          </svg>
+        </button>
+        <button class="carousel-btn" id="nextBtn" aria-label="Další" onclick="scrollCarousel(1)">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M11.293.293a1 1 0 0 1 1.414 0l9 9a1 1 0 0 1 0 1.414l-9 9a1 1 0 0 1-1.414-1.414L18.586 11H1a1 1 0 1 1 0-2h17.586l-7.293-7.293a1 1 0 0 1 0-1.414Z" fill="currentColor"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <div class="testimonials-track-wrapper" id="carouselWrapper">
+      <div class="testimonials-track" id="carouselTrack">
+        <div class="testimonial-card">
+          <blockquote>„V tak strašném a stresujícím čase byl tým Tulip úžasný. Opravdu nám celý proces usnadnili. Každý byl soucitný a jejich ceny jsou přiměřené."</blockquote>
+          <div class="testimonial-author">Alena S.</div>
+          <div class="testimonial-location">Severní Čechy</div>
+        </div>
+        <div class="testimonial-card">
+          <blockquote>„Vřele doporučuji Tulip, protože se o vše postarají s laskavostí. Když přišel čas převzít našeho blízkého, přišli s úctou a laskavostí nejen k zesnulému, ale i k celé naší rodině."</blockquote>
+          <div class="testimonial-author">Claudia A.</div>
+          <div class="testimonial-location">Severní Čechy</div>
+        </div>
+        <div class="testimonial-card">
+          <blockquote>„Vše bylo vyřízeno velmi profesionálně. Protože byla opatření přijata předem, nebylo po manželově smrti třeba dělat žádná rozhodnutí na poslední chvíli. Děkuji za pomoc."</blockquote>
+          <div class="testimonial-author">Linda S.</div>
+          <div class="testimonial-location">Praha</div>
+        </div>
+        <div class="testimonial-card">
+          <blockquote>„Byl jsem skvěle přijat. Byl to velmi jednoduchý a úplný proces. Nízký stres. Pracovníci byli velmi vstřícní a odpověděli na všechny mé otázky."</blockquote>
+          <div class="testimonial-author">Martin J.</div>
+          <div class="testimonial-location">Brno</div>
+          <div class="testimonial-date">24. června 2022</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="carousel-dots" id="carouselDots">
+      <span class="carousel-dot active"></span>
+      <span class="carousel-dot"></span>
+    </div>
+
+    <div class="testimonials-footer" style="margin-top:28px;">
+      <a href="#" class="btn-ghost">Číst další příběhy →</a>
+    </div>
+  </div>
+</section>
+
+
+<!-- ── PRICING ── -->
+<section class="pricing" id="pricing">
+  <div class="container">
+    <div class="pricing-header">
+      <h2>Jednoduchý, transparentní ceník</h2>
+    </div>
+    <div class="pricing-grid">
+      <!-- Tulip -->
+      <div class="price-card highlight">
+        <div class="price-caption">
+          <span>S</span>
+          <svg width="22" height="22" viewBox="0 0 38 38" fill="none">
+            <path fill="#243965" d="M30.44.05C26.17.38 22.14 2.15 19 5.1A18.88 18.88 0 0 0 0 1.03v18.15c0 5.09 2 9.97 5.57 13.56a18.92 18.92 0 0 0 26.88 0 19.27 19.27 0 0 0 5.57-13.56V1.03a18.92 18.92 0 0 0-7.58-.98Zm-5.29 19.13A19.3 19.3 0 0 1 19 33.31a19.14 19.14 0 0 1-6.13-14.13v-.07A19.3 19.3 0 0 1 19.01 5.1a19.16 19.16 0 0 1 6.15 14.01v.07Z"/>
+          </svg>
+          <strong>Tulip</strong>
+        </div>
+        <h3>Jednoduchá přímá kremace Tulip od</h3>
+        <div class="price-amount">24 900 Kč*</div>
+        <ul class="price-list">
+          <li>Online sjednání pomáhá udržovat nízké náklady</li>
+          <li>Specialisté bez provizí – péče na prvním místě</li>
+          <li>Žádné skryté poplatky</li>
+        </ul>
+        <p class="price-copy">Vše pod vedením pohřebního ředitele a našeho odborného týmu péče.</p>
+        <p class="price-copy" style="margin-top:8px;">*Počáteční cena se liší dle oblasti.</p>
+        <div style="margin-top:24px;">
+          <a href="#" class="btn btn-primary">Zjistit ceník Tulip</a>
+        </div>
+      </div>
+      <!-- Traditional -->
+      <div class="price-card plain">
+        <h3>Tradiční pohřební služby od</h3>
+        <div class="price-amount" style="color:#717171;">63 000 Kč</div>
+        <ul class="price-list">
+          <li>Nákladné kamenné provozovny</li>
+          <li>Pracovníci mohou pracovat za prodejní provize</li>
+          <li>Sjednání přímo v pohřebním ústavu</li>
+        </ul>
+        <p class="price-copy">Průměrná cena tradiční pohřební služby je 200 000 Kč i více.</p>
+      </div>
+    </div>
+    <div class="pricing-action">
+      <a href="#" class="btn btn-primary">Zjistit ceník Tulip</a>
+    </div>
+  </div>
+</section>
+
+
+<!-- ── OUR PROCESS ── -->
+<section class="process">
+  <img class="process-bg"
+    src="./Tulip Cremation _ Cremation Services Your Family Can Trust_files/our-process-bg.jpg"
+    alt="" loading="lazy" aria-hidden="true">
+  <div class="process-inner">
+    <div class="process-heading">
+      <h2>Náš postup</h2>
+      <p>Naše jednoduché přímé kremační služby jsou soucitné a důstojné a probíhají v dnech po odchodu vašeho blízkého. Nabízíme jednoduchý proces, transparentní ceny a péči světové úrovně 24/7.</p>
+      <p>Jsme tu pro vás, když nás nejvíce potřebujete.</p>
+      <div class="process-actions">
+        <a href="#" class="btn btn-white">Více informací</a>
+        <a href="#" class="btn btn-outline-white">Okamžitá nabídka</a>
+      </div>
+    </div>
+
+    <div class="process-steps">
+      <div class="process-step">
+        <img class="process-step-img"
+          src="./Tulip Cremation _ Cremation Services Your Family Can Trust_files/laptop-icon.jpg"
+          alt="Sjednání" loading="lazy">
+        <div class="process-step-content">
+          <div class="process-step-num">Krok 1</div>
+          <div class="process-step-title">Sjednání &amp; převzetí</div>
+          <p class="process-step-desc">Přebíráme vašeho blízkého do naší péče co nejdříve po dokončení všech ujednání.</p>
+          <span class="process-step-duration">2–4 dny</span>
+        </div>
+      </div>
+      <div class="process-step">
+        <img class="process-step-img"
+          src="./Tulip Cremation _ Cremation Services Your Family Can Trust_files/contract-icon.jpg"
+          alt="Registrace" loading="lazy">
+        <div class="process-step-content">
+          <div class="process-step-num">Krok 2</div>
+          <div class="process-step-title">Registrace</div>
+          <p class="process-step-desc">Registrujeme úmrtí vašeho blízkého na příslušných úřadech, abychom mohli přistoupit ke kremaci.</p>
+          <span class="process-step-duration">1–2 dny</span>
+        </div>
+      </div>
+      <div class="process-step">
+        <img class="process-step-img"
+          src="./Tulip Cremation _ Cremation Services Your Family Can Trust_files/protect-care-icon.jpg"
+          alt="Kremace" loading="lazy">
+        <div class="process-step-content">
+          <div class="process-step-num">Krok 3</div>
+          <div class="process-step-title">Kremace</div>
+          <p class="process-step-desc">Provádíme soukromou, důstojnou kremaci v jednom z našich místních zařízení.</p>
+          <span class="process-step-duration">8–14 dní</span>
+        </div>
+      </div>
+      <div class="process-step">
+        <img class="process-step-img"
+          src="./Tulip Cremation _ Cremation Services Your Family Can Trust_files/urn-icon.jpg"
+          alt="Vrácení ostatků" loading="lazy">
+        <div class="process-step-content">
+          <div class="process-step-num">Krok 4</div>
+          <div class="process-step-title">Vrácení ostatků</div>
+          <p class="process-step-desc">Ostatky vašeho blízkého doručíme na libovolnou adresu prostřednictvím prioritní poštovní doručby.</p>
+          <span class="process-step-duration">3–5 dní</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ── PEACE OF MIND (50/50) ── -->
+<section class="split-section">
+  <div class="split-inner">
+    <div class="split-content">
+      <div class="split-content-inner">
+        <h2>Plánování s klidem v duši</h2>
+        <p>Zmírněte finanční a emocionální zátěž svých blízkých tím, že závěrečná opatření zajistíte předem. Předplánování Tulip zajistí, že vaše přání budou respektována a vaše opatření budou předplacena za dnešní ceny – čímž chráníte své blízké před inflací.</p>
+        <p>Tulip je navíc certifikovaný poskytovatel pohřebních služeb pro veterány, takže vojákům a jejich rodinám pomůžeme zajistit dávky, ocenění a finanční asistenci.</p>
+        <a href="#" class="btn btn-primary" style="margin-top: 8px;">Plánovat předem</a>
+      </div>
+    </div>
+    <div class="split-image">
+      <img src="./Tulip Cremation _ Cremation Services Your Family Can Trust_files/50-50-image1.jpg"
+        alt="Floristka s čerstvou květinovou výzdobou" loading="lazy"
+        style="width:100%;height:100%;object-fit:cover;">
+    </div>
+  </div>
+</section>
+
+
+<!-- ── EXPERT GUIDANCE (50/50 reversed) ── -->
+<section class="split-section" style="background:#fff;">
+  <div class="split-inner reversed">
+    <div class="split-content">
+      <div class="split-content-inner">
+        <h2>Odborné poradenství pro vaše otázky</h2>
+        <p>Ať jste v jakékoli fázi procesu – od výzkumu po sjednání – naše odborné rady jsou navrženy tak, aby zodpověděly vaše otázky, poskytly přehled a pomohly vám přijímat informovaná rozhodnutí.</p>
+        <a href="#" class="btn btn-primary" style="margin-top: 8px;">Zobrazit odborné rady</a>
+      </div>
+    </div>
+    <div class="split-image" style="background:#edf4f5;">
+      <img src="./Tulip Cremation _ Cremation Services Your Family Can Trust_files/50-50-image2.jpg"
+        alt="Matka a dcera v objetí" loading="lazy"
+        style="width:100%;height:100%;object-fit:cover;">
+    </div>
+  </div>
+</section>
+
+
+<!-- ── ARTICLES ── -->
+<section class="articles">
+  <div class="container">
+    <div class="articles-header">
+      <h2>Časté otázky, zodpovězeny</h2>
+    </div>
+    <div class="articles-grid">
+
+      <article class="article-card">
+        <div class="article-img-wrap">
+          <img class="article-img"
+            src="./Tulip Cremation _ Cremation Services Your Family Can Trust_files/article-tile12.jpg"
+            alt="Co je přímá kremace" loading="lazy">
+        </div>
+        <h2>Co je přímá kremace?</h2>
+        <p>Jednoduše řečeno, přímá kremace (někdy nazývaná jednoduchá kremace) je nejzákladnější formou kremace bez pohřebního obřadu předem.</p>
+        <a href="#" class="read-more">ČÍST DÁL</a>
+      </article>
+
+      <article class="article-card">
+        <div class="article-img-wrap">
+          <img class="article-img"
+            src="./Tulip Cremation _ Cremation Services Your Family Can Trust_files/article-tile7.jpg"
+            alt="Úmrtní listy" loading="lazy">
+        </div>
+        <h2>Úmrtní listy – Co, proč a kolik?</h2>
+        <p>Úmrtní list je oficiální dokument potvrzující, že určitá osoba zemřela. Vysvětlujeme, proč jej potřebujete a kolik kopií si obstarat.</p>
+        <a href="#" class="read-more">ČÍST DÁL</a>
+      </article>
+
+      <article class="article-card">
+        <div class="article-img-wrap">
+          <img class="article-img"
+            src="./Tulip Cremation _ Cremation Services Your Family Can Trust_files/tulip-field-sunrise.jpg"
+            alt="Nejbližší příbuzní" loading="lazy">
+        </div>
+        <h2>Nejbližší příbuzní</h2>
+        <p>Obecně řečeno, nejbližší příbuzný je nejbližší žijící krevní příbuzný, včetně manžela/ky a adoptovaných členů rodiny. Zákon popisuje, kdo může zajistit pohřební opatření.</p>
+        <a href="#" class="read-more">ZOBRAZIT VŠECHNY ČLÁNKY</a>
+      </article>
+
+    </div>
+    <div class="articles-footer">
+      <a href="#" class="btn btn-outline">Více odborných rad</a>
+    </div>
+  </div>
+</section>
+
+
+<!-- ── FOOTER ── -->
+<footer class="site-footer" id="patička">
+  <div class="back-to-top">
+    <a href="#page-body">
+      <svg width="22" height="13" viewBox="0 0 22 13" fill="none">
+        <path fill="currentColor" d="M.7 12.4c.5.5 1.4.5 1.9 0L11 4.1l8.4 8.4c.5.5 1.4.5 1.9 0s.5-1.4 0-1.9L12 1.3c-.5-.5-1.4-.5-1.9 0L.8 10.6c-.6.5-.6 1.3-.1 1.8z"/>
+      </svg>
+      Zpět nahoru
+    </a>
+  </div>
+
+  <div class="newsletter-section">
+    <div class="newsletter-inner">
+      <div class="newsletter-text">
+        <div class="newsletter-stay">Zůstaňte v kontaktu.</div>
+        <h3>Přihlaste se k odběru novinek.</h3>
+      </div>
+      <div>
+        <div class="newsletter-form">
+          <input type="email" class="newsletter-input" placeholder="Zadejte svůj e-mail" aria-label="E-mailová adresa">
+          <button class="btn btn-primary" type="submit">Přihlásit se</button>
+        </div>
+        <p class="newsletter-privacy">Přihlášením souhlasíte s naší <a href="#" style="color:rgba(255,255,255,0.5);text-decoration:underline;">Zásadou ochrany soukromí</a>.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-top">
+    <div class="footer-top-inner">
+      <div class="footer-brand">
+        <div class="footer-logo">
+          <svg width="168" height="60" viewBox="0 0 168 60" fill="none">
+            <path fill="white" d="M90.99 43.86c-2.7 0-4.035-1.515-4.035-5.07V20.22h4.245v-2.46H86.955V9.27h-1.725c-2.49 3.84-5.895 8.025-9.87 9.84v1.335h3.57v18.795c0 6.525 3.45 9.03 8.19 9.03a9.9 9.9 0 0 0 8.895-5.01l-.705-1.05c-1.425 1.11-2.7 1.635-4.32 1.635ZM150.18 12.705a4.53 4.53 0 0 0 4.35-2.805 4.56 4.56 0 0 0-4.365-6.405 4.53 4.53 0 0 0-4.2 2.85 4.635 4.635 0 0 0 2.46 6c.555.24 1.155.36 1.755.36ZM157.965 45.75l-1.44-.12c-2.19-.18-2.31-.81-2.31-2.805V17.94h-11.55v1.755l.87.165c2.25.405 2.655 1.335 2.655 3.27v19.875c0 2.01-.12 2.625-2.31 2.805l-1.44.12c-2.655-.18-3.57-.525-3.57-2.565V4.845h-11.55v1.755l.87.165c1.68.405 2.655.705 2.655 3.27v33.135c0 2.04-.93 2.4-3.57 2.55l-1.44-.105c-2.19-.165-2.31-.8-2.31-2.805V17.94h-11.55v1.755l.855.165c2.25.405 2.655 1.335 2.655 3.27V40.38c-1.845 1.215-3.555 2.205-5.88 2.205-3.165 0-4.5-2.1-4.5-5.64V17.94h-11.61v2.46l.93.18c2.25.39 2.655 1.35 2.655 3.255v15.15c0 6.525 3.3 9.435 8.37 9.435 4.56 0 7.62-2.85 10.05-5.595l-.18 5.01h42.645V45.75Z"/>
+            <path fill="white" d="M177.75 17.13c-4.605 0-7.785 2.565-9.69 5.475V17.94h-11.55v1.755l.885.165c2.205.405 2.625 1.32 2.64 3.165v32.67c0 2.04-.915 2.4-3.555 2.565V60h16.335v-1.92c-3.645-.3-4.74-.525-4.74-2.745v-8.73c1.275 1.11 3.405 1.635 5.775 1.635 8.595 0 15.405-5.535 15.405-16.95 0-8.97-4.455-14.16-11.505-14.16Zm-4.44 28.89c-3.525 0-5.25-2.265-5.25-6.69V24.06a7.65 7.65 0 0 1 5.07-2.04c5.43 0 8.025 4.95 8.025 12.12s-2.955 11.88-7.845 11.88Z"/>
+            <path fill="#FFD72E" d="M45.66.075C39.255.57 33.21 3.225 28.5 7.65A28.32 28.32 0 0 0 0 1.545v27.225c0 7.635 3 14.955 8.355 20.34a28.38 28.38 0 0 0 40.32 0 28.905 28.905 0 0 0 8.355-20.34V1.545A28.38 28.38 0 0 0 45.66.075Zm-7.935 28.695A28.95 28.95 0 0 1 35.325 40.5a28.71 28.71 0 0 1-6.825 9.615 28.71 28.71 0 0 1-6.81-9.615 28.935 28.935 0 0 1-2.385-11.58v-.105a28.965 28.965 0 0 1 2.43-11.475 28.74 28.74 0 0 1 6.78-9.54 28.74 28.74 0 0 1 6.795 9.54 28.965 28.965 0 0 1 2.43 11.475l-.015.105Z"/>
+          </svg>
+        </div>
+        <p class="footer-contact-label">Máte otázky? Kontaktujte nás.</p>
+        <div class="footer-phone">(844) 942-4909</div>
+        <div class="footer-availability">Náš tým péče je k dispozici 24/7</div>
+        <div class="footer-social">
+          <a href="#" class="social-link" aria-label="Facebook">f</a>
+          <a href="#" class="social-link" aria-label="E-mail">✉</a>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h4>O společnosti Tulip</h4>
+        <ul>
+          <li><a href="#">Náš příběh</a></li>
+          <li><a href="#">Časté dotazy</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Odborné rady</h4>
+        <ul>
+          <li><a href="#">Pro rodiny</a></li>
+          <li><a href="#">Pro pečovatele</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Kremační služby</h4>
+        <ul>
+          <li><a href="#">Naše služby</a></li>
+          <li><a href="#">Oblasti služeb</a></li>
+          <li><a href="#">Ceník</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Právní informace</h4>
+        <ul>
+          <li><a href="#">Ceníky</a></li>
+          <li><a href="#">Zásady ochrany soukromí</a></li>
+          <li><a href="#">Podmínky použití</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-bottom container">
+    <span class="footer-copyright">® 2026 Tulip Kremace. Všechna práva vyhrazena | Licence pohřebního ústavu č. 2322 / 2467</span>
+    <div class="footer-legal">
+      <a href="#">Zásady ochrany soukromí</a>
+      <a href="#">Podmínky použití</a>
+    </div>
+  </div>
+</footer>
+
+
+<!-- ── JS ── -->
+<script>
+  // Quote form option selection
+  function selectOption(el) {
+    document.querySelectorAll('.quote-option').forEach(o => o.classList.remove('selected'));
+    el.classList.add('selected');
+    document.getElementById('continueBtn').disabled = false;
+  }
+
+  // Testimonial carousel
+  let currentSlide = 0;
+  const totalSlides = 4;
+  const visibleSlides = 3;
+  const maxSlide = totalSlides - visibleSlides;
+
+  function scrollCarousel(dir) {
+    currentSlide = Math.max(0, Math.min(maxSlide, currentSlide + dir));
+    const track = document.getElementById('carouselTrack');
+    const wrapper = document.getElementById('carouselWrapper');
+    const cardWidth = wrapper.offsetWidth / visibleSlides + 20/visibleSlides;
+    track.style.transform = `translateX(-${currentSlide * (100/visibleSlides)}%)`;
+
+    document.getElementById('prevBtn').disabled = currentSlide === 0;
+    document.getElementById('nextBtn').disabled = currentSlide === maxSlide;
+
+    document.querySelectorAll('.carousel-dot').forEach((d, i) => {
+      d.classList.toggle('active', i === currentSlide);
+    });
+  }
+
+  // Make carousel track use percentage-based translation
+  window.addEventListener('resize', () => {
+    const track = document.getElementById('carouselTrack');
+    track.style.transform = `translateX(-${currentSlide * (100/visibleSlides)}%)`;
+  });
+</script>
+
+</body>
+</html>

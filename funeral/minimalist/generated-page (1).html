@@ -1,0 +1,307 @@
+<html lang="cs"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PIETA | Pohřební služby</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&amp;display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        iconify-icon {
+            stroke-width: 1.5;
+        }
+        
+        /* Custom Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(24px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0) scale(1);
+            }
+            50% {
+                transform: translateY(-20px) scale(1.02);
+            }
+        }
+
+        @keyframes pulseGlow {
+            0%, 100% {
+                opacity: 0.4;
+            }
+            50% {
+                opacity: 0.7;
+            }
+        }
+
+        .animate-fade-in-up {
+            opacity: 0;
+            animation: fadeInUp 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+        }
+
+        .animate-float {
+            animation: float 8s ease-in-out infinite;
+        }
+
+        .animate-pulse-glow {
+            animation: pulseGlow 4s ease-in-out infinite;
+        }
+
+        .delay-100 { animation-delay: 100ms; }
+        .delay-200 { animation-delay: 200ms; }
+        .delay-300 { animation-delay: 300ms; }
+        .delay-400 { animation-delay: 400ms; }
+        .delay-500 { animation-delay: 500ms; }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-900 antialiased selection:bg-blue-100 selection:text-blue-900 min-h-screen flex flex-col relative overflow-x-hidden">
+
+    <!-- Ambient Background Elements -->
+    <div class="fixed inset-0 pointer-events-none z-0 overflow-hidden">
+        <div class="absolute top-[-10%] left-[-10%] w-[50vw] h-[50vw] rounded-full bg-blue-100/40 blur-[100px] animate-float"></div>
+        <div class="absolute top-[20%] right-[-10%] w-[40vw] h-[40vw] rounded-full bg-rose-50/50 blur-[100px] animate-float" style="animation-delay: -4s;"></div>
+        <div class="absolute bottom-[-10%] left-[20%] w-[60vw] h-[40vw] rounded-full bg-slate-100/60 blur-[120px] animate-float" style="animation-delay: -2s;"></div>
+    </div>
+
+    <!-- Emergency Banner -->
+    <div class="relative z-50 bg-gradient-to-r from-slate-900 via-slate-800 to-slate-900 text-slate-50 py-2.5 px-4 sm:px-6 lg:px-8 text-center flex items-center justify-center gap-2 shadow-md shadow-slate-900/10">
+        <iconify-icon icon="solar:phone-calling-linear" class="text-base text-blue-300 animate-pulse"></iconify-icon>
+        <span class="text-xs sm:text-sm font-normal text-slate-200">
+            Non-stop pohotovostní linka: <span class="font-medium text-white tracking-tight ml-1">800 123 456</span>
+        </span>
+    </div>
+
+    <!-- Navigation -->
+    <header class="sticky top-0 z-40 bg-white/60 backdrop-blur-xl border-b border-white/80 shadow-[0_4px_20px_rgba(0,0,0,0.02)] transition-all">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+            <a href="#" class="text-lg font-medium tracking-tighter uppercase text-slate-900 hover:opacity-80 transition-opacity">
+                PIETA
+            </a>
+            <nav class="hidden md:flex gap-8 items-center">
+                <a href="#" class="text-sm font-normal text-slate-500 hover:text-slate-900 transition-colors">Služby</a>
+                <a href="#" class="text-sm font-normal text-slate-500 hover:text-slate-900 transition-colors">O nás</a>
+                <a href="#" class="text-sm font-normal text-slate-500 hover:text-slate-900 transition-colors">Poradenství</a>
+                <a href="#" class="text-sm font-normal text-slate-500 hover:text-slate-900 transition-colors">Ceník</a>
+                <a href="#kontakt" class="ml-4 inline-flex items-center justify-center rounded-lg bg-white/80 backdrop-blur-sm border border-slate-200/80 px-4 py-1.5 text-xs font-medium text-slate-800 hover:bg-white hover:border-blue-200 hover:text-blue-900 hover:shadow-[0_2px_10px_rgba(59,130,246,0.1)] transition-all duration-300">
+                    Kontakt
+                </a>
+            </nav>
+            <button class="md:hidden p-2 text-slate-500 hover:text-slate-900 transition-colors">
+                <iconify-icon icon="solar:hamburger-menu-linear" class="text-xl"></iconify-icon>
+            </button>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <main class="flex-grow relative z-10">
+        <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 sm:py-28 lg:py-40 flex flex-col items-center text-center">
+            
+            <div class="animate-fade-in-up inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/60 backdrop-blur-md border border-white/80 text-xs font-normal text-slate-600 mb-8 shadow-[0_2px_10px_rgba(0,0,0,0.02)] hover:shadow-[0_2px_15px_rgba(59,130,246,0.08)] transition-all duration-500 cursor-default">
+                <div class="h-1.5 w-1.5 rounded-full bg-blue-400 animate-pulse-glow"></div>
+                <span>S úctou a respektem k tradicím</span>
+            </div>
+            
+            <h1 class="animate-fade-in-up delay-100 text-4xl sm:text-5xl lg:text-6xl font-medium tracking-tight text-slate-900 max-w-3xl leading-[1.15] drop-shadow-sm">
+                Důstojné rozloučení<br class="hidden sm:block"> s maximální empatií
+            </h1>
+            
+            <p class="animate-fade-in-up delay-200 mt-6 text-base sm:text-lg font-normal text-slate-500 max-w-2xl leading-relaxed">
+                Jsme tu pro vás v nejtěžších životních chvílích. Zajišťujeme kompletní pohřební služby s ohledem na vaše přání, diskrétně a s nejvyšší úctou k památce zesnulého.
+            </p>
+            
+            <div class="animate-fade-in-up delay-300 mt-10 flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
+                <a href="#kontakt" class="group relative inline-flex justify-center items-center gap-2 rounded-xl bg-gradient-to-b from-slate-800 to-slate-900 px-7 py-3.5 text-sm font-medium text-white shadow-[0_4px_20px_rgba(15,23,42,0.15)] hover:shadow-[0_8px_30px_rgba(15,23,42,0.25)] hover:-translate-y-0.5 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-slate-900 focus:ring-offset-2 focus:ring-offset-slate-50 overflow-hidden">
+                    <div class="absolute inset-0 bg-white/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    Zajistit služby
+                    <iconify-icon icon="solar:arrow-right-linear" class="text-base group-hover:translate-x-1 transition-transform duration-300"></iconify-icon>
+                </a>
+                <a href="#sluzby" class="inline-flex justify-center items-center gap-2 rounded-xl bg-white/50 backdrop-blur-md px-7 py-3.5 text-sm font-medium text-slate-800 border border-slate-200/80 hover:bg-white hover:border-slate-300 hover:shadow-[0_4px_20px_rgba(0,0,0,0.04)] hover:-translate-y-0.5 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-slate-200 focus:ring-offset-2 focus:ring-offset-slate-50">
+                    Prohlédnout nabídku
+                </a>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section id="sluzby" class="relative py-24 sm:py-32">
+            <div class="absolute inset-0 bg-gradient-to-b from-transparent via-white/40 to-transparent pointer-events-none"></div>
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                <div class="mb-16 max-w-2xl animate-fade-in-up delay-200">
+                    <h2 class="text-2xl sm:text-3xl font-medium tracking-tight text-slate-900">Komplexní péče a podpora</h2>
+                    <p class="mt-4 text-sm sm:text-base font-normal text-slate-500 leading-relaxed">
+                        Postaráme se o veškeré formální i praktické náležitosti, abyste měli dostatek prostoru a klidu pro osobní rozloučení a vzpomínky.
+                    </p>
+                </div>
+                
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <!-- Service 1 -->
+                    <div class="animate-fade-in-up delay-200 p-8 rounded-3xl bg-white/60 backdrop-blur-xl border border-white/80 shadow-[0_8px_30px_rgba(0,0,0,0.02)] hover:shadow-[0_20px_40px_rgba(59,130,246,0.06)] hover:-translate-y-1.5 transition-all duration-500 group relative overflow-hidden">
+                        <div class="absolute top-0 right-0 w-32 h-32 bg-blue-50/50 rounded-bl-full -z-10 group-hover:scale-110 transition-transform duration-500"></div>
+                        <div class="h-12 w-12 rounded-2xl bg-gradient-to-br from-white to-slate-50 border border-white flex items-center justify-center mb-6 text-slate-600 shadow-[0_4px_12px_rgba(0,0,0,0.03)] group-hover:text-blue-600 group-hover:scale-110 group-hover:shadow-[0_8px_20px_rgba(59,130,246,0.1)] transition-all duration-500">
+                            <iconify-icon icon="solar:clipboard-list-linear" class="text-2xl"></iconify-icon>
+                        </div>
+                        <h3 class="text-base font-medium tracking-tight text-slate-900 mb-3">Sjednání obřadu</h3>
+                        <p class="text-sm font-normal text-slate-500 leading-relaxed">
+                            Osobní a citlivý přístup při plánování celého průběhu posledního rozloučení přesně podle vašich představ a tradic.
+                        </p>
+                    </div>
+
+                    <!-- Service 2 -->
+                    <div class="animate-fade-in-up delay-300 p-8 rounded-3xl bg-white/60 backdrop-blur-xl border border-white/80 shadow-[0_8px_30px_rgba(0,0,0,0.02)] hover:shadow-[0_20px_40px_rgba(59,130,246,0.06)] hover:-translate-y-1.5 transition-all duration-500 group relative overflow-hidden">
+                        <div class="absolute top-0 right-0 w-32 h-32 bg-indigo-50/50 rounded-bl-full -z-10 group-hover:scale-110 transition-transform duration-500"></div>
+                        <div class="h-12 w-12 rounded-2xl bg-gradient-to-br from-white to-slate-50 border border-white flex items-center justify-center mb-6 text-slate-600 shadow-[0_4px_12px_rgba(0,0,0,0.03)] group-hover:text-indigo-600 group-hover:scale-110 group-hover:shadow-[0_8px_20px_rgba(99,102,241,0.1)] transition-all duration-500">
+                            <iconify-icon icon="solar:map-arrow-linear" class="text-2xl"></iconify-icon>
+                        </div>
+                        <h3 class="text-base font-medium tracking-tight text-slate-900 mb-3">Převozy zesnulých</h3>
+                        <p class="text-sm font-normal text-slate-500 leading-relaxed">
+                            Zajišťujeme profesionální a vysoce pietní převozy speciálními vozy v rámci celé republiky i ze zahraničí, 24/7.
+                        </p>
+                    </div>
+
+                    <!-- Service 3 -->
+                    <div class="animate-fade-in-up delay-400 p-8 rounded-3xl bg-white/60 backdrop-blur-xl border border-white/80 shadow-[0_8px_30px_rgba(0,0,0,0.02)] hover:shadow-[0_20px_40px_rgba(244,63,94,0.04)] hover:-translate-y-1.5 transition-all duration-500 group relative overflow-hidden">
+                        <div class="absolute top-0 right-0 w-32 h-32 bg-rose-50/50 rounded-bl-full -z-10 group-hover:scale-110 transition-transform duration-500"></div>
+                        <div class="h-12 w-12 rounded-2xl bg-gradient-to-br from-white to-slate-50 border border-white flex items-center justify-center mb-6 text-slate-600 shadow-[0_4px_12px_rgba(0,0,0,0.03)] group-hover:text-rose-500 group-hover:scale-110 group-hover:shadow-[0_8px_20px_rgba(244,63,94,0.1)] transition-all duration-500">
+                            <iconify-icon icon="solar:leaf-linear" class="text-2xl"></iconify-icon>
+                        </div>
+                        <h3 class="text-base font-medium tracking-tight text-slate-900 mb-3">Smuteční vazba</h3>
+                        <p class="text-sm font-normal text-slate-500 leading-relaxed">
+                            Příprava důstojných květinových darů, věnců a kytic z čerstvých květin s garancí včasného doručení na místo obřadu.
+                        </p>
+                    </div>
+
+                    <!-- Service 4 -->
+                    <div class="animate-fade-in-up delay-500 p-8 rounded-3xl bg-white/60 backdrop-blur-xl border border-white/80 shadow-[0_8px_30px_rgba(0,0,0,0.02)] hover:shadow-[0_20px_40px_rgba(59,130,246,0.06)] hover:-translate-y-1.5 transition-all duration-500 group relative overflow-hidden">
+                        <div class="absolute top-0 right-0 w-32 h-32 bg-slate-100/50 rounded-bl-full -z-10 group-hover:scale-110 transition-transform duration-500"></div>
+                        <div class="h-12 w-12 rounded-2xl bg-gradient-to-br from-white to-slate-50 border border-white flex items-center justify-center mb-6 text-slate-600 shadow-[0_4px_12px_rgba(0,0,0,0.03)] group-hover:text-slate-900 group-hover:scale-110 group-hover:shadow-[0_8px_20px_rgba(15,23,42,0.08)] transition-all duration-500">
+                            <iconify-icon icon="solar:document-text-linear" class="text-2xl"></iconify-icon>
+                        </div>
+                        <h3 class="text-base font-medium tracking-tight text-slate-900 mb-3">Administrativa</h3>
+                        <p class="text-sm font-normal text-slate-500 leading-relaxed">
+                            Kompletní vyřízení úmrtního listu na matrice a odborná asistence s dalšími nezbytnými úředními záležitostmi.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="kontakt" class="py-24 sm:py-32 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-5 gap-12 lg:gap-20">
+                <div class="lg:col-span-2 flex flex-col justify-center animate-fade-in-up delay-200">
+                    <div>
+                        <h2 class="text-2xl sm:text-3xl font-medium tracking-tight text-slate-900 mb-5">Jsme zde pro vás</h2>
+                        <p class="text-sm sm:text-base font-normal text-slate-500 mb-12 leading-relaxed">
+                            Naše linka je dostupná nepřetržitě pro urgentní případy. Pro méně naléhavé dotazy, konzultace nebo předběžné nacenění využijte prosím náš kontaktní formulář.
+                        </p>
+
+                        <div class="space-y-8">
+                            <div class="flex items-start gap-5 group">
+                                <div class="h-10 w-10 rounded-full bg-white border border-slate-100 flex items-center justify-center flex-shrink-0 text-slate-500 shadow-[0_4px_10px_rgba(0,0,0,0.02)] group-hover:text-blue-600 group-hover:border-blue-100 group-hover:shadow-[0_4px_15px_rgba(59,130,246,0.1)] transition-all duration-300">
+                                    <iconify-icon icon="solar:map-point-linear" class="text-xl"></iconify-icon>
+                                </div>
+                                <div>
+                                    <h4 class="text-sm font-medium tracking-tight text-slate-900">Kancelář a sjednávací místnost</h4>
+                                    <p class="text-sm font-normal text-slate-500 mt-2 leading-relaxed">U Hřbitova 123, 110 00 Praha 1<br>Po - Pá: 8:00 - 16:00 (nebo dle domluvy)</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start gap-5 group">
+                                <div class="h-10 w-10 rounded-full bg-white border border-slate-100 flex items-center justify-center flex-shrink-0 text-slate-500 shadow-[0_4px_10px_rgba(0,0,0,0.02)] group-hover:text-blue-600 group-hover:border-blue-100 group-hover:shadow-[0_4px_15px_rgba(59,130,246,0.1)] transition-all duration-300">
+                                    <iconify-icon icon="solar:phone-calling-linear" class="text-xl"></iconify-icon>
+                                </div>
+                                <div>
+                                    <h4 class="text-sm font-medium tracking-tight text-slate-900">Pohotovost (24/7)</h4>
+                                    <p class="text-sm font-normal text-slate-500 mt-2">+420 800 123 456</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start gap-5 group">
+                                <div class="h-10 w-10 rounded-full bg-white border border-slate-100 flex items-center justify-center flex-shrink-0 text-slate-500 shadow-[0_4px_10px_rgba(0,0,0,0.02)] group-hover:text-blue-600 group-hover:border-blue-100 group-hover:shadow-[0_4px_15px_rgba(59,130,246,0.1)] transition-all duration-300">
+                                    <iconify-icon icon="solar:letter-linear" class="text-xl"></iconify-icon>
+                                </div>
+                                <div>
+                                    <h4 class="text-sm font-medium tracking-tight text-slate-900">Elektronická komunikace</h4>
+                                    <p class="text-sm font-normal text-slate-500 mt-2">podpora@pieta-sluzby.cz</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Form -->
+                <div class="lg:col-span-3 animate-fade-in-up delay-400">
+                    <div class="bg-white/70 backdrop-blur-2xl p-8 sm:p-12 rounded-[2rem] border border-white shadow-[0_8px_40px_rgba(0,0,0,0.04)] relative overflow-hidden">
+                        <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-blue-200 via-rose-200 to-slate-200 opacity-50"></div>
+                        <form class="space-y-7 relative z-10">
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-7">
+                                <div class="space-y-2.5">
+                                    <label class="text-xs font-medium text-slate-700 ml-1">Jméno a příjmení</label>
+                                    <input type="text" class="w-full appearance-none rounded-xl border border-slate-200/80 bg-slate-50/50 px-4 py-3 text-sm text-slate-900 placeholder-slate-400 shadow-sm focus:border-blue-300 focus:bg-white focus:outline-none focus:ring-4 focus:ring-blue-50 transition-all duration-300" placeholder="Jan Novák">
+                                </div>
+                                <div class="space-y-2.5">
+                                    <label class="text-xs font-medium text-slate-700 ml-1">Telefonní číslo</label>
+                                    <input type="tel" class="w-full appearance-none rounded-xl border border-slate-200/80 bg-slate-50/50 px-4 py-3 text-sm text-slate-900 placeholder-slate-400 shadow-sm focus:border-blue-300 focus:bg-white focus:outline-none focus:ring-4 focus:ring-blue-50 transition-all duration-300" placeholder="+420 ...">
+                                </div>
+                            </div>
+                            
+                            <div class="space-y-2.5">
+                                <label class="text-xs font-medium text-slate-700 ml-1">Zpráva nebo dotaz</label>
+                                <textarea rows="5" class="w-full appearance-none rounded-xl border border-slate-200/80 bg-slate-50/50 px-4 py-3 text-sm text-slate-900 placeholder-slate-400 shadow-sm focus:border-blue-300 focus:bg-white focus:outline-none focus:ring-4 focus:ring-blue-50 transition-all duration-300 resize-none" placeholder="Popište nám, jak vám můžeme pomoci..."></textarea>
+                            </div>
+                            
+                            <!-- Custom Checkbox -->
+                            <div class="flex items-start gap-3.5 pt-1">
+                                <div class="flex h-5 items-center">
+                                    <input id="consent" type="checkbox" class="peer hidden" checked="">
+                                    <label for="consent" class="h-5 w-5 rounded-md border border-slate-300 bg-white peer-checked:bg-slate-800 peer-checked:border-slate-800 flex items-center justify-center cursor-pointer transition-all duration-300 hover:border-slate-400 shadow-sm">
+                                        <iconify-icon icon="solar:check-read-linear" class="text-white text-[12px] opacity-0 peer-checked:opacity-100 peer-checked:scale-110 transition-all duration-300"></iconify-icon>
+                                    </label>
+                                </div>
+                                <label for="consent" class="text-xs font-normal text-slate-500 cursor-pointer pt-0.5 leading-relaxed select-none hover:text-slate-700 transition-colors">
+                                    Souhlasím se zpracováním osobních údajů pro účely vyřízení tohoto dotazu dle platné legislativy.
+                                </label>
+                            </div>
+                            
+                            <div class="pt-4">
+                                <button type="button" class="w-full sm:w-auto inline-flex justify-center items-center gap-2 rounded-xl bg-slate-900 px-8 py-3.5 text-sm font-medium text-white shadow-[0_4px_15px_rgba(15,23,42,0.15)] hover:bg-slate-800 hover:shadow-[0_6px_25px_rgba(15,23,42,0.2)] hover:-translate-y-0.5 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-slate-900 focus:ring-offset-2 focus:ring-offset-white">
+                                    Odeslat zprávu
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="relative z-10 border-t border-slate-200/60 bg-gradient-to-b from-white/50 to-slate-50/80 backdrop-blur-sm py-12 mt-auto">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row justify-between items-center gap-6">
+            <div class="flex flex-col items-center sm:items-start gap-2">
+                <span class="text-base font-medium tracking-tighter uppercase text-slate-900">
+                    PIETA
+                </span>
+                <span class="text-xs font-normal text-slate-400">
+                    © 2024 Pohřební služby PIETA. Všechna práva vyhrazena.
+                </span>
+            </div>
+            <div class="flex gap-8">
+                <a href="#" class="text-xs font-normal text-slate-500 hover:text-slate-900 transition-colors">Ochrana osobních údajů</a>
+                <a href="#" class="text-xs font-normal text-slate-500 hover:text-slate-900 transition-colors">Obchodní podmínky</a>
+            </div>
+        </div>
+    </footer>
+
+
+</body></html>
